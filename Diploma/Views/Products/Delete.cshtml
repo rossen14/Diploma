@@ -1,0 +1,25 @@
+﻿@model Product
+
+<h1>Сигурни ли сте че искате да изтриете този продукт?</h1>
+
+<form asp-controller="Products" asp-action="Delete" method="post">
+    <div>
+        <label asp-for="Name">Име</label>
+        <input type="text" value="@Model.Name" disabled/>
+    </div>
+    <div>
+        <label asp-for="Price">Цена</label>
+        <input type="text" value="@Model.Price" disabled />
+    </div>
+    <div>
+        <label asp-for="Stock">Бройка</label>
+        <input type="text" value="@Model.Stock" disabled />
+    </div>
+    <div>
+        <label asp-for="ImageUrl">Снимка</label>
+        <input type="text" value="@Model.ImageUrl" disabled />
+    </div>
+
+    <input type="submit" value="Изтрий"/>
+    <button asp-action="Index" asp-controller="Products" formmethod="get">Откажи</button>
+</form>

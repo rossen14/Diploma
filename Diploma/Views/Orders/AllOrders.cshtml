@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Всички поръчки";
+}
+
+<h1>Всички поръчки</h1>
+<hr />
+<table style="width: 100%;">
+    <thead>
+        <tr>
+            <th style="width: 33.33%;">Продукт</th>
+            <th style="width: 33.33%;">Клиент</th>
+            <th style="width: 33.33%;">Поръчано на</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Product.Name</td>
+                <td>@order.ApplicationUser.UserName</td>
+                <td>@order.OrderedOn</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />

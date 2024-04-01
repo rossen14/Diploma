@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User) && await
+          UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "admin"))
+{
+    <li class="nav-item dropdown show">
+    <a class="btn dropdown-toggle" href="#" data-toggle="dropdown">Продукти</a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Index">Всички продукти</a>
+        <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Create">Добави продукт</a>
+    </div>
+    </li>
+}
+
+else if (SignInManager.IsSignedIn(User))
+{
+
+    <li class="nav-item dropdown show">
+        <a class="btn dropdown dropdown-toggle" href="#" data-toggle="dropdown">Продукти</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" asp-controller="Orders" asp-action="All">Продукт</a>
+        </div>
+    </li>
+}

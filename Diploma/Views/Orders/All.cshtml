@@ -1,0 +1,41 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Всички продукти";
+}
+
+<h1>Всички продукти</h1>
+
+<table style="width: 100%;" class="table">
+    <thead>
+        <tr>        
+            <th>Име</th>
+            <th>Цена</th>
+            <th>Бройка</th>
+            <th>Снимка</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ev in this.ViewBag.Products as IEnumerable<Product>)
+        {
+            <tr>
+                <td>@ev.Name</td>
+                <td>@ev.Price</td>
+                <td>@ev.Stock</td>
+                <td><img src="@ev.ImageUrl" style="max-width: 50%; height: 100px;" /></td>
+                <td>
+                    <form method="post" asp-action="OrderProducts" asp-controller="Orders">
+                        <div>
+                            <input type="hidden" asp-for="@Model.Product.ID" value="@ev.ID" />
+                            <input type="hidden" asp-for="@Model.ApplicationUser" value="@User.Identity.Name" />
+                            <label asp-for="@Model.Quantity"></label>
+                            <input asp-for="@Model.Quantity" />
+                            <span asp-validation-for="@Model.Quantity"></span>
+                            <button type="submit">Order</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

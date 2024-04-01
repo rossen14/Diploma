@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Добави продукт";
+}
+
+@model Product
+
+<h1>Добави продукт</h1>
+<form asp-controller="Products" asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name">Име</label>
+        <input asp-for="Name" type="text"/>
+    </div>
+
+    <div>
+        <label asp-for="Price">Цена</label>
+        <input asp-for="Price" type="text" placeholder="3,20"/>
+    </div>
+
+    <div>
+        <label asp-for="Stock">Бройка</label>
+        <input asp-for="Stock" type="number" />
+    </div>
+    <div>
+        <label asp-for="ImageUrl">Снимка</label>
+        <input asp-for="ImageUrl" type="url" />
+    </div>
+    <input type="submit" value="Добави продукт"/>
+    <button asp-action="Index" asp-controller="Products" formmethod="get">Откажи</button>
+</form> 

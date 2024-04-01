@@ -1,0 +1,40 @@
+﻿@{
+	ViewBag.Title = "Начало";
+}
+
+@model ICollection<Product>
+
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+	<section class="hero">
+		<h1>Добре дошли в Didi's Cookieworld</h1>
+		<p>Изработени ръчно и с любов!</p>
+		<a href="@Url.Action("Products", "Home")" class="btnOne">Пазарувайте</a>
+	</section>
+
+	<section class="featured-products">
+		<h2>Изложени продукти</h2>
+		<div class="products">
+			@foreach (var item in Model)
+			{
+				<div class="product-card">
+					<div class="product-image">
+						<img src="@item.ImageUrl" alt="@item.Name">
+					</div>
+
+					<div class="product-details">
+						<div class="product-title">@item.Name</div>
+						<div class="product-price">@item.Price лв.</div>
+					</div>
+					<form method="get" asp-action="Details" asp-controller="Products">
+						<button>Покажи</button>
+					</form>
+				</div>
+			}
+		</div>
+	</section>
+</body>

@@ -1,0 +1,56 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffe6e6; /* Light pink background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #ff6699; /* Pink headings */
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    ul li {
+        margin-bottom: 5px;
+    }
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+.navbar {
+    background-color: #ff6699; /* Pink navbar */
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-brand:hover {
+        color: #ffd966; /* Yellow hover color */
+    }
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #ffd966; /* Yellow hover color */
+    }

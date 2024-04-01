@@ -1,0 +1,28 @@
+﻿@model ICollection<Product>
+
+<h1>Продукти</h1>
+<table style="width: 100%;">
+    <tr>
+        <th style="width: 25%;">Име</th>
+        <th style="width: 25%;">Цена</th>
+        <th style="width: 25%;">Бройка</th>
+        <th style="width: 25%;">Снимка</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Stock</td>
+            <td><img src="@item.ImageUrl" style="max-width: 50%; height: auto;" /></td>
+            <td>
+                <a asp-action="Edit" asp-controller="Products" asp-route-id="@item.ID">Редактирай</a>
+                <a asp-action="Delete" asp-controller="Products" asp-route-id="@item.ID">Изтрий</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<button><a asp-action="Create" asp-controller="Products">Добави продукт</a></button>
